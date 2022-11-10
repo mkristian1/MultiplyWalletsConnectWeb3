@@ -1,1 +1,3 @@
-Yarn install
+# Getting Started
+### `yarn install`
+### `npm start`
