@@ -1,23 +1,33 @@
-import logo from './logo.svg';
-import './App.css';
+import { useContext } from "react";
+import { Toaster } from "react-hot-toast";
+import ModalMultiplyWallets from "./components/ModalMultiplyWallets";
+import { DAppContext } from "./context";
+import "./styles/index.scss";
 
 function App() {
+  const { connectBrowserWallet, loading, isOpen, setIsOpen, userData } =
+    useContext(DAppContext);
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      {userData && (
+        <div className="account">
+          <h3>
+            Account: {userData?.account.slice(0, 5)}...
+            {userData?.account.slice(-4)}
+          </h3>
+        </div>
+      )}
+      <button onClick={() => setIsOpen(true)} className="btn">
+        <span>Connect Wallet</span>
+      </button>
+      <ModalMultiplyWallets
+        connectBrowserWallet={connectBrowserWallet}
+        loading={loading}
+        isOpen={isOpen}
+        setIsOpen={setIsOpen}
+      />
+      <Toaster position="top-center" reverseOrder={false} />
     </div>
   );
 }

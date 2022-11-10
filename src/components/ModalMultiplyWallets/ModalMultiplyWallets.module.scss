@@ -1,0 +1,96 @@
+.modal {
+  position: relative;
+  background: var(--white);
+  width: 550px;
+  padding: 10px 30px 30px 30px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1000;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  border-radius: 16px;
+  animation: fideIn 0.6s;
+  &__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    h2 {
+      font-size: 32px;
+      font-weight: bold;
+    }
+  }
+  &__body {
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+  &__close {
+    background-color: #333;
+    color: var(--white);
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    right: 5px;
+    top: 5px;
+    transition: transform .3s;
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+}
+.wallets {
+  margin-block-start: 40px;
+  display: flex;
+  align-items: flex-end;
+  gap: 30px;
+  &__item {
+    position: relative;
+    font-weight: bold;
+    img {
+      width: 100px;
+      margin-bottom: 10px;
+      transition: transform 0.3s;
+    }
+    h3 {
+      font-size: 18px;
+      font-weight: bold;
+      background-color: #333;
+      padding: 4px 10px;
+      border-radius: 6px;
+      color: var(--white);
+    }
+    &:hover img  {
+      transform: scale(1.07);
+    }
+    &_disabled {
+      pointer-events: none;
+      opacity: 0.2;
+    }
+  }
+  &__errors {
+    margin-bottom: 8px;
+  }
+}
+.overlay {
+  display: none;
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 999;
+  width: 100%;
+  height: 100%;
+  background-color: #333c;
+  &_active {
+    display: block;
+  }
+}
+
+@keyframes fideIn {
+  0% {
+    transform: translate(-50%, -100vh);
+  }
+  100% {
+    transform: translate(-50%, -50%);
+  }
+}

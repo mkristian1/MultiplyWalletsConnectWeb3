@@ -1,0 +1,72 @@
+@import "./reset/index.scss";
+
+:root {
+  --white: #fff;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+  background-image: linear-gradient(to right, #8360c3, #2ebf91);
+  background-repeat: no-repeat;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.btn {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  margin: auto;
+  padding: 20px 48px;
+  background: none;
+  border: solid #fff 4px;
+  color: #fff;
+  text-align: center;
+  border-radius: 18px;
+  font-size: 32px;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  cursor: pointer;
+}
+
+.btn:after {
+  content: "";
+  position: absolute;
+  background-color: #fff;
+  border-radius: 10px;
+  height: 102%;
+  width: 0;
+  transition: width 0.4s;
+  left: -1px;
+  top: -1px;
+  z-index: 1;
+}
+.btn span {
+  position: relative;
+  z-index: 2;
+}
+
+.btn:hover {
+  color: #5594a8;
+}
+
+.btn:hover:after {
+  width: 101%;
+}
+
+.account {
+  h3 {
+    font-size: 28px;
+    font-weight: bold;
+    background-color: #333;
+    padding: 8px 10px;
+    border-radius: 6px;
+    color: var(--white);
+    margin-bottom: 30px;
+    font-weight: bold;
+    text-align: center;
+    border-radius: 8px;
+  }
+}
